@@ -34,9 +34,7 @@ pipeline {
   }
   post {
     always {
-      steps {
-        echo 'This will always run ${CONVERTED_PROXY_URL}'
-      }
+      echo 'This will always run ${CONVERTED_PROXY_URL}'
     }
   }
 }
