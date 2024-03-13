@@ -5,6 +5,10 @@ pipeline {
 
   agent any
 
+   environment {
+    CONVERTED_PROXY_URL = ''
+  }
+
   stages {
     // stage('loging env all by sorting') {
     //   steps {
@@ -25,6 +29,13 @@ pipeline {
           def newUrl = url_parser.replaceBaseUrl()
           echo "NEW URL : ${newUrl}"
         }
+      }
+    }
+  }
+  post {
+    always {
+      steps {
+        echo 'This will always run ${CONVERTED_PROXY_URL}'
       }
     }
   }
