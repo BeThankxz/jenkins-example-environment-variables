@@ -1,13 +1,16 @@
 pipeline {
-  agent {
-    label 'OSX'
-  }
+  // agent {
+  //   label 'OSX'
+  // }
+  
+  agent any
+
   stages {
-    stage('loging env all by sorting') {
-      steps {
-        sh 'env | sort'
-      }
-    }
+    // stage('loging env all by sorting') {
+    //   steps {
+    //     sh 'env | sort'
+    //   }
+    // }
 
     stage('echo env.BUILD_URL') {
       steps {
