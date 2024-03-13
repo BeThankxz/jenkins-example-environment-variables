@@ -3,9 +3,24 @@ pipeline {
     label 'OSX'
   }
   stages {
-    stage('stage 1') {
+    stage('loging env all by sorting') {
       steps {
         sh 'env | sort'
+      }
+    }
+
+    stage('echo env.BUILD_URL') {
+      steps {
+        echo 'BUILD_URL : ${env.BUILD_URL}'
+      }
+    }
+
+    stage('run groovy script to log env.BUILD_URL') {
+      steps {
+        script {
+          def buildUrl = env.BUILD_URL
+          echo "BUILD_URL : ${buildUrl}"
+        }
       }
     }
   }
