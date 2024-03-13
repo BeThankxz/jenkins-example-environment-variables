@@ -2,7 +2,7 @@ pipeline {
   // agent {
   //   label 'OSX'
   // }
-  
+
   agent any
 
   stages {
@@ -23,6 +23,7 @@ pipeline {
         script {
           def buildUrl = env.BUILD_URL
           echo "BUILD_URL : ${buildUrl}"
+          echo "BUILD_URL LENGTH : ${buildUrl.length()}"
         }
       }
     }
