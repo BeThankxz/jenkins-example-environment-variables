@@ -5,7 +5,7 @@ pipeline {
 
   agent any
 
-   environment {
+  environment {
     CONVERTED_PROXY_URL = ''
   }
 
@@ -26,8 +26,8 @@ pipeline {
       steps {
         script {
           def url_parser = load 'url_parser.groovy'
-          env.CONVERTED_PROXY_URL = url_parser.replaceBaseUrl()
-          echo "CONVERTED_PROXY_URL : ${env.CONVERTED_PROXY_URL}"
+          CONVERTED_PROXY_URL = url_parser.replaceBaseUrl()
+          echo "CONVERTED_PROXY_URL : ${CONVERTED_PROXY_URL}"
         }
       }
     }
