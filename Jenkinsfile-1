@@ -26,8 +26,8 @@ pipeline {
       steps {
         script {
           def url_parser = load 'url_parser.groovy'
-          def newUrl = url_parser.replaceBaseUrl()
-          echo "NEW URL : ${newUrl}"
+          env.CONVERTED_PROXY_URL = url_parser.replaceBaseUrl()
+          echo "CONVERTED_PROXY_URL : ${env.CONVERTED_PROXY_URL}"
         }
       }
     }
