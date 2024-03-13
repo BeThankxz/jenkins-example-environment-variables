@@ -21,7 +21,6 @@ pipeline {
     stage('run groovy script to log env.BUILD_URL') {
       steps {
         script {
-          
           def jenkinUrl = env.JENKINS_URL
           def jenkinUrlLength = jenkinUrl.length()
 
@@ -34,7 +33,13 @@ pipeline {
           echo "BUILD_URL : ${buildUrl}"
           echo "BUILD_URL LENGTH : ${buildUrl}"
 
-          def newUrl = buildUrl.substring(jenkinUrlLength, buildUrlLength)
+          def suffixUrl = buildUrl.substring(jenkinUrlLength, buildUrlLength)
+          echo "SUFIX URL : ${suffixUrl}"
+
+          def publicUrl = env.PUBLIC_URL
+          echo "publicUrl : ${publicUrl}"
+
+          def newUrl = publicUrl + suffixUrl
           echo "NEW URL : ${newUrl}"
 
         }
